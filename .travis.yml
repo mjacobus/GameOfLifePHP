@@ -1,0 +1,19 @@
+language: php
+php:
+  - 5.6
+  - 5.5
+  - 5.4
+  - 5.3
+  - 5.3.3
+  - hhvm
+
+before_script:
+  - composer install --dev --no-interaction
+  - mysql -e 'create database koine_test'
+
+script:
+  - mkdir -p build/logs
+  - vendor/bin/phpunit -c tests/phpunit.xml
+
+after_script:
+  - php vendor/bin/coveralls
