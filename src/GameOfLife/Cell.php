@@ -44,6 +44,16 @@ class Cell
     }
 
     /**
+     * @return self
+     */
+    public function resurrect()
+    {
+        $this->alive = true;
+
+        return $this;
+    }
+
+    /**
      * @param Cell $neighbour
      * @return self
      */

@@ -47,6 +47,16 @@ class CellTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function canBeResurrected()
+    {
+        $this->cell = new Cell(false);
+        $this->cell->resurrect();
+        $this->assertTrue($this->cell->isAlive());
+    }
+
+    /**
+     * @test
+     */
     public function canAddNeighbour()
     {
         $cell = new Cell();
