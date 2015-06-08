@@ -2,8 +2,6 @@
 
 namespace GameOfLife\Action;
 
-use GameOfLife\CellAwareTrait;
-
 /**
  * GameOfLife\Action\Null
  */

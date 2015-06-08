@@ -74,4 +74,3 @@ class CellTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(array($cell), $this->cell->getNeighbours());
     }
 }
-

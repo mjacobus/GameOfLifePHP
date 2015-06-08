@@ -24,7 +24,6 @@ abstract class AbstractAction implements ActionInterface
 
     public function execute()
     {
-
     }
 
     public function getCell()

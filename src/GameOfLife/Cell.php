@@ -8,7 +8,7 @@ namespace GameOfLife;
 class Cell
 {
     /**
-     * @var boolean
+     * @var bool
      */
     private $alive;
 
@@ -18,7 +18,7 @@ class Cell
     private $neighbours = array();
 
     /**
-     * @param boolean $isAlive
+     * @param bool $isAlive
      */
     public function __construct($isAlive = true)
     {
@@ -26,7 +26,7 @@ class Cell
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isAlive()
     {
@@ -55,6 +55,7 @@ class Cell
 
     /**
      * @param Cell $neighbour
+     *
      * @return self
      */
     public function addNeighbour(Cell $cell)
@@ -74,6 +75,7 @@ class Cell
 
     /**
      * @param array $neighbours
+     *
      * @return self
      */
     public function setNeighbours(array $neighbours)
