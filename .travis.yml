@@ -9,7 +9,6 @@ php:
 
 before_script:
   - composer install --dev --no-interaction
-  - mysql -e 'create database koine_test'
 
 script:
   - mkdir -p build/logs
