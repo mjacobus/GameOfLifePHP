@@ -13,10 +13,11 @@ class KillTest extends PHPUnit_Framework_TestCase
 {
     /** @var Kill */
     protected $action;
+    protected $cell;
 
     public function setUp()
     {
-        $cell = new Cell();
+        $this->cell = new Cell();
         $this->action = new Kill($cell);
     }
 
@@ -42,7 +43,6 @@ class KillTest extends PHPUnit_Framework_TestCase
     public function killsCell()
     {
         $this->action->execute();
-        $cell = $this->action->getCell();
-        $this->assertFalse($cell->isAlive());
+        $this->assertFalse($this->cell->isAlive());
     }
 }
