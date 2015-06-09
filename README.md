@@ -29,10 +29,10 @@ Every cell interacts with its eight neighbours, which are the cells that are
 horizontally, vertically, or diagonally adjacent. At each step in time, the
 following transitions occur:
 
-1. Any live cell with fewer than two live neighbours dies, as if caused by under-population.
-2. Any live cell with two or three live neighbours lives on to the next generation.
-3. Any live cell with more than three live neighbours dies, as if by overcrowding.
-4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+1. Any live cell with fewer than two live neighbours dies, as if caused by under-population. (loneliness death)
+2. Any live cell with two or three live neighbours lives on to the next generation. (Happy Community Wont Change)
+3. Any live cell with more than three live neighbours dies, as if by overcrowding. (over population death)
+4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction. (ThreeLiveNeighboursRessurection)
 
 The initial pattern constitutes the seed of the system. The first generation is
 created by applying the above rules simultaneously to every cell in the
