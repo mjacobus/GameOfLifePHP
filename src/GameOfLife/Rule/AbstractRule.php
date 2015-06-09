@@ -9,10 +9,11 @@ use GameOfLife\Cell;
  */
 abstract class AbstractRule implements RuleInterface
 {
-    abstract function apply(Cell $cell);
+    abstract public function apply(Cell $cell);
 
     /**
      * @param Cell $cell
+     *
      * @return int
      */
     public function getNumberOfLivingNeighbours(Cell $cell)

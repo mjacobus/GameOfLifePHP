@@ -2,15 +2,11 @@
 
 namespace GameOfLifeTest\Rule;
 
-use GameOfLife\Action;
-use GameOfLife\Cell;
 use GameOfLife\Rule\HappyCommunityResurrection;
 use PHPUnit_Framework_TestCase;
 
 /**
  * GameOfLifeTest\Rule\HappyCommunityResurrectionTest
- *
- * @package php-marketingbackend\GameOfLifeTest\Rule
  */
 class HappyCommunityResurrectionTest extends PHPUnit_Framework_TestCase
 {

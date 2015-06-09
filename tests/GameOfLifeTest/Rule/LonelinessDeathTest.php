@@ -2,7 +2,6 @@
 
 namespace GameOfLifeTest\Rule;
 
-use GameOfLife\Cell;
 use GameOfLife\Rule\LonelinessDeath;
 use PHPUnit_Framework_TestCase;
 
