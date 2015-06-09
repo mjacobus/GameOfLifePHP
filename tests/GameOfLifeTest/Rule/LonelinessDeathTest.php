@@ -32,9 +32,7 @@ class LonelinessDeathTest extends PHPUnit_Framework_TestCase
      */
     public function applyReturnsKillActionWhenNumberOfNeighboursIsLessThan3()
     {
-        $cell = new Cell();
-        $cell->addNeighbour(new Cell(true));
-        $cell->addNeighbour(new Cell(false));
+        $cell = createCell(1);
         $action = $this->rule->apply($cell);
         $this->assertInstanceOf('GameOfLife\Action\Kill', $action);
         $this->assertSame($cell, $action->getCell());
@@ -45,9 +43,7 @@ class LonelinessDeathTest extends PHPUnit_Framework_TestCase
      */
     public function applyReturnNullActionWhenNumberOfNeighboursIsLessThan2()
     {
-        $cell = new Cell();
-        $cell->addNeighbour(new Cell(true));
-        $cell->addNeighbour(new Cell(true));
+        $cell = createCell(2);
         $action = $this->rule->apply($cell);
         $this->assertInstanceOf('GameOfLife\Action\Null', $action);
         $this->assertSame($cell, $action->getCell());
