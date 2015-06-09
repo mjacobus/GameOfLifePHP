@@ -54,7 +54,7 @@ class Cell
     }
 
     /**
-     * @param Cell $neighbour
+     * @param Cell $cell
      *
      * @return self
      */

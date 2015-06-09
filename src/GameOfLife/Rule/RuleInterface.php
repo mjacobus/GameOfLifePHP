@@ -13,7 +13,7 @@ interface RuleInterface
     /**
      * @param Cell $cell
      *
-     * @return ActionInterface
+     * @return RuleInterface
      */
     public function apply(Cell $cell);
 }
