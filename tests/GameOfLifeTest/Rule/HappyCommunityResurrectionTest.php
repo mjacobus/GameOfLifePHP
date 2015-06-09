@@ -44,7 +44,7 @@ class HappyCommunityResurrectionTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function applyReturnNullActionWhenNumberOfNeighboursIsLessThan2()
+    public function applyReturnNullActionWhenNumberOfNeighboursIsNot2Or3()
     {
         $cell = createCell(4);
         $action = $this->rule->apply($cell);
