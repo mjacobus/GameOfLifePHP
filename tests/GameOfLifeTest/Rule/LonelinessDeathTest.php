@@ -40,7 +40,7 @@ class LonelinessDeathTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function applyReturnNullActionWhenNumberOfNeighboursIsLessThan2()
+    public function applyReturnNullActionWhenNumberOfNeighboursIsNot3Or2()
     {
         $cell = createCell(2);
         $action = $this->rule->apply($cell);
