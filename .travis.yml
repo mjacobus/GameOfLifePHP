@@ -10,7 +10,7 @@ before_install:
   - composer self-update
 
 install:
-  - travis_retry composer install --dev --no-interaction  --prefer-source
+  - travis_retry composer install --dev --no-interaction --prefer-source
 
 before_script:
   - mkdir -p build/logs
