@@ -11,14 +11,20 @@ use PHPUnit_Framework_TestCase;
  */
 class KillTest extends PHPUnit_Framework_TestCase
 {
-    /** @var Kill */
+    /**
+     * @var Kill
+     */
     protected $action;
+
+    /**
+     * @var Cell
+     */
     protected $cell;
 
     public function setUp()
     {
         $this->cell = new Cell();
-        $this->action = new Kill($cell);
+        $this->action = new Kill($this->cell);
     }
 
     /**
