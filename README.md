@@ -2,7 +2,7 @@ Game of Life - A PHP Implementation
 ------------------------------------
 
 After a very fun code retreat delivered by [Urs Reupke](https://github.com/UrsKR)
-at [Good Game Studios](http://goodgamestudios.com) I decided that I wanted to finish that exercise.
+at [Goodgame Studios](http://goodgamestudios.com) I decided that I wanted to finish that exercise.
 
 That was the [Game of Life](http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) implementation
 

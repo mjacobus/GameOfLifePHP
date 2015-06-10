@@ -5,22 +5,22 @@ checks:
 tools:
   external_code_coverage: true
   php_code_coverage:
-    test_command: "phpunit --configuration tests/phpunit.xml --coverage-clover=coverage.clover"
+    test_command: "phpunit --coverage-clover=coverage.clover"
     filter:
-      paths: ["lib/*"]
+      paths: ["src/*"]
     php_sim:
       enabled: true
       filter:
-        paths: ["lib/*"]
+        paths: ["src/*"]
     php_mess_detector:
       enabled: true
       filter:
-        paths: ["lib/*"]
+        paths: ["src/*"]
     php_pdepend:
       enabled: true
       filter:
-        paths: ["lib/*"]
+        paths: ["src/*"]
     php_analyzer:
       enabled: true
       filter:
-        paths: ["lib/*"]
+        paths: ["src/*"]
