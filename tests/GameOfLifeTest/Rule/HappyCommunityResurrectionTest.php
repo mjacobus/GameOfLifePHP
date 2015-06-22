@@ -3,27 +3,16 @@
 namespace GameOfLifeTest\Rule;
 
 use GameOfLife\Rule\HappyCommunityResurrection;
-use PHPUnit_Framework_TestCase;
+use GameOfLife\Test\RuleTestCase;
 
 /**
  * GameOfLifeTest\Rule\HappyCommunityResurrectionTest
  */
-class HappyCommunityResurrectionTest extends PHPUnit_Framework_TestCase
+class HappyCommunityResurrectionTest extends RuleTestCase
 {
-    /** @var HappyCommunityResurrection */
-    protected $rule;
-
-    public function setUp()
+    public function getRule()
     {
-        $this->rule = new HappyCommunityResurrection();
-    }
-
-    /**
-     * @test
-     */
-    public function implementsTheCorrectInterface()
-    {
-        $this->assertInstanceOf('GameOfLife\Rule\RuleInterface', $this->rule);
+        return new HappyCommunityResurrection();
     }
 
     /**
@@ -31,14 +20,8 @@ class HappyCommunityResurrectionTest extends PHPUnit_Framework_TestCase
      */
     public function applyReturnRessurectActionWhenNumberOfNeighboursIs2or3()
     {
-        $cell = createCell(2);
-        $action = $this->rule->apply($cell);
-        $this->assertInstanceOf('GameOfLife\Action\Resurrect', $action);
-        $this->assertSame($cell, $action->getCell());
-        $this->assertInstanceOf(
-            'GameOfLife\Action\Resurrect',
-            $this->rule->apply(createCell(3))
-        );
+        $this->assertAction('Resurrect', 2);
+        $this->assertAction('Resurrect', 3);
     }
 
     /**
@@ -46,13 +29,7 @@ class HappyCommunityResurrectionTest extends PHPUnit_Framework_TestCase
      */
     public function applyReturnNullActionWhenNumberOfNeighboursIsNot2Or3()
     {
-        $cell = createCell(4);
-        $action = $this->rule->apply($cell);
-        $this->assertInstanceOf('GameOfLife\Action\Null', $action);
-        $this->assertSame($cell, $action->getCell());
-        $this->assertInstanceOf(
-            'GameOfLife\Action\Null',
-            $this->rule->apply(createCell(1))
-        );
+        $this->assertAction('Null', 1);
+        $this->assertAction('Null', 4);
     }
 }

@@ -3,27 +3,16 @@
 namespace GameOfLifeTest\Rule;
 
 use GameOfLife\Rule\LonelinessDeath;
-use PHPUnit_Framework_TestCase;
+use GameOfLife\Test\RuleTestCase;
 
 /**
  * GameOfLifeTest\Rule\LonelinessDeathTest
  */
-class LonelinessDeathTest extends PHPUnit_Framework_TestCase
+class LonelinessDeathTest extends RuleTestCase
 {
-    /** @var LonelinessDeath */
-    protected $rule;
-
-    public function setUp()
+    public function getRule()
     {
-        $this->rule = new LonelinessDeath();
-    }
-
-    /**
-     * @test
-     */
-    public function implementsTheCorrectInterface()
-    {
-        $this->assertInstanceOf('GameOfLife\Rule\RuleInterface', $this->rule);
+        return new LonelinessDeath();
     }
 
     /**
@@ -31,10 +20,7 @@ class LonelinessDeathTest extends PHPUnit_Framework_TestCase
      */
     public function applyReturnsKillActionWhenNumberOfNeighboursIsLessThan3()
     {
-        $cell = createCell(1);
-        $action = $this->rule->apply($cell);
-        $this->assertInstanceOf('GameOfLife\Action\Kill', $action);
-        $this->assertSame($cell, $action->getCell());
+        $this->assertAction('Kill', 1);
     }
 
     /**
@@ -42,9 +28,6 @@ class LonelinessDeathTest extends PHPUnit_Framework_TestCase
      */
     public function applyReturnNullActionWhenNumberOfNeighboursIsNot3Or2()
     {
-        $cell = createCell(2);
-        $action = $this->rule->apply($cell);
-        $this->assertInstanceOf('GameOfLife\Action\Null', $action);
-        $this->assertSame($cell, $action->getCell());
+        $this->assertAction('Null', 2);
     }
 }
