@@ -29,7 +29,7 @@ class HappyCommunityResurrectionTest extends RuleTestCase
      */
     public function applyReturnNullActionWhenNumberOfNeighboursIsNot2Or3()
     {
-        $this->assertAction('Null', 1);
-        $this->assertAction('Null', 4);
+        $this->assertAction('NullAction', 1);
+        $this->assertAction('NullAction', 4);
     }
 }

@@ -28,8 +28,8 @@ class ThreeLiveNeighboursResurrectionTest extends RuleTestCase
      */
     public function applyReturnsNullActionWhenCellDoesNotHave3LiveNeighbours()
     {
-        $this->assertAction('Null', 1);
-        $this->assertAction('Null', 2);
-        $this->assertAction('Null', 4);
+        $this->assertAction('NullAction', 1);
+        $this->assertAction('NullAction', 2);
+        $this->assertAction('NullAction', 4);
     }
 }

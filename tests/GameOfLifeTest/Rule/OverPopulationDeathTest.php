@@ -29,8 +29,8 @@ class OverPopulationDeathTest extends RuleTestCase
      */
     public function applyReturnNullActionWhenNumberOfNeighboursIsNot3Or2()
     {
-        $this->assertAction('Null', 1);
-        $this->assertAction('Null', 2);
-        $this->assertAction('Null', 3);
+        $this->assertAction('NullAction', 1);
+        $this->assertAction('NullAction', 2);
+        $this->assertAction('NullAction', 3);
     }
 }

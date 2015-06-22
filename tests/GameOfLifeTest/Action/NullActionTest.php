@@ -2,7 +2,7 @@
 
 namespace GameOfLifeTest\Action;
 
-use GameOfLife\Action\Null;
+use GameOfLife\Action\NullAction;
 use GameOfLife\Cell;
 use PHPUnit_Framework_TestCase;
 
@@ -11,13 +11,13 @@ use PHPUnit_Framework_TestCase;
  */
 class NullTest extends PHPUnit_Framework_TestCase
 {
-    /** @var Null */
+    /** @var NullAction */
     protected $action;
 
     public function setUp()
     {
         $cell = new Cell(true);
-        $this->action = new Null($cell);
+        $this->action = new NullAction($cell);
     }
 
     /**
@@ -42,7 +42,7 @@ class NullTest extends PHPUnit_Framework_TestCase
     public function doesNotChangeCellStatus()
     {
         $cell = new Cell(true);
-        $this->action = new Null($cell);
+        $this->action = new NullAction($cell);
         $this->action->execute();
         $this->assertTrue($cell->isAlive());
 

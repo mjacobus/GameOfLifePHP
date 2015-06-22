@@ -18,6 +18,6 @@ class HappyCommunityResurrection extends AbstractRule
             return new Action\Resurrect($cell);
         }
 
-        return new Action\Null($cell);
+        return new Action\NullAction($cell);
     }
 }

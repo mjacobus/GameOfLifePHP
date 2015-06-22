@@ -3,9 +3,9 @@
 namespace GameOfLife\Action;
 
 /**
- * GameOfLife\Action\Null
+ * GameOfLife\Action\NullAction
  */
-class Null extends AbstractAction
+class NullAction extends AbstractAction
 {
     public function execute()
     {

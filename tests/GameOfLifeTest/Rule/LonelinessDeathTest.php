@@ -28,6 +28,6 @@ class LonelinessDeathTest extends RuleTestCase
      */
     public function applyReturnNullActionWhenNumberOfNeighboursIsNot3Or2()
     {
-        $this->assertAction('Null', 2);
+        $this->assertAction('NullAction', 2);
     }
 }

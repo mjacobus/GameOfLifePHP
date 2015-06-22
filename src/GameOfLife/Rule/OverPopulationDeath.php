@@ -16,6 +16,6 @@ class OverPopulationDeath extends AbstractRule
             return new Action\Kill($cell);
         }
 
-        return new Action\Null($cell);
+        return new Action\NullAction($cell);
     }
 }
