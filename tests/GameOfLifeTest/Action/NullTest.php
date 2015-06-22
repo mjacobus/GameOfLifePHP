@@ -41,12 +41,13 @@ class NullTest extends PHPUnit_Framework_TestCase
      */
     public function doesNotChangeCellStatus()
     {
-        $this->action = new Null(new Cell(true));
+        $cell = new Cell(true);
+        $this->action = new Null($cell);
         $this->action->execute();
-        $this->assertTrue($this->action->getCell()->isAlive());
+        $this->assertTrue($cell->isAlive());
 
-        $this->action = new Null(new Cell(false));
+        $cell->kill();
         $this->action->execute();
-        $this->assertFalse($this->action->getCell()->isAlive());
+        $this->assertFalse($cell->isAlive());
     }
 }

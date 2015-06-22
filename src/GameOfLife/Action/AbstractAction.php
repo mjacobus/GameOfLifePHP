@@ -22,7 +22,10 @@ abstract class AbstractAction implements ActionInterface
         $this->cell = $cell;
     }
 
-    public function getCell()
+    /**
+     * @return Cell
+     */
+    protected function getCell()
     {
         return $this->cell;
     }

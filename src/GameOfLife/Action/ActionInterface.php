@@ -10,9 +10,4 @@ use GameOfLife\Cell;
 interface ActionInterface
 {
     public function execute();
-
-    /**
-     * @return Cell
-     */
-    public function getCell();
 }

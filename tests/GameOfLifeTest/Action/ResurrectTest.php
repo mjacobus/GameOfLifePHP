@@ -11,13 +11,16 @@ use PHPUnit_Framework_TestCase;
  */
 class ResurrectTest extends PHPUnit_Framework_TestCase
 {
+    /** @var Cell */
+    protected $cell;
+
     /** @var Resurrect */
     protected $action;
 
     public function setUp()
     {
-        $cell = new Cell(false);
-        $this->action = new Resurrect($cell);
+        $this->cell = new Cell(false);
+        $this->action = new Resurrect($this->cell);
     }
 
     /**
@@ -42,7 +45,6 @@ class ResurrectTest extends PHPUnit_Framework_TestCase
     public function resurrectCell()
     {
         $this->action->execute();
-        $cell = $this->action->getCell();
-        $this->assertTrue($cell->isAlive());
+        $this->assertTrue($this->cell->isAlive());
     }
 }

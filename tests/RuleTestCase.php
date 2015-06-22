@@ -23,15 +23,24 @@ class RuleTestCase extends PHPUnit_Framework_TestCase
         $this->assertInstanceOf('GameOfLife\Rule\RuleInterface', $this->getRule());
     }
 
-
+    /**
+     * @param string $actionType
+     * @param int    $numberOfAliveNeighbours
+     */
     protected function assertAction($actionType, $numberOfLiveCells)
     {
         $cell = $this->createCell($numberOfLiveCells);
+        $actionClass = "GameOfLife\Action\\$actionType";
         $action = $this->getRule()->apply($cell);
-        $this->assertInstanceOf("GameOfLife\Action\\$actionType", $action);
-        $this->assertSame($cell, $action->getCell());
+        $this->assertInstanceOf($actionClass, $action);
+        $this->assertEquals(new $actionClass($cell), $action);
     }
 
+    /**
+     * @param int $numberOfAliveNeighbours
+     *
+     * @return Cell
+     */
     public function createCell($numberOfAliveNeighbours)
     {
         $cell = new Cell();
