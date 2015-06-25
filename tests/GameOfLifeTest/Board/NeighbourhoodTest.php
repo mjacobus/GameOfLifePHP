@@ -26,6 +26,9 @@ class NeighbourhoodTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    /**
+     * @return array
+     */
     public function providerForGetNeighbours()
     {
         return array(
@@ -49,6 +52,9 @@ class NeighbourhoodTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($neighbours, $this->hood->getNeighbours($target));
     }
 
+    /**
+     * @return array
+     */
     public function providerForGetResidentByAddress()
     {
         return array(
