@@ -18,10 +18,19 @@ class HappyCommunityResurrectionTest extends RuleTestCase
     /**
      * @test
      */
-    public function applyReturnRessurectActionWhenNumberOfNeighboursIs2or3()
+    public function applyReturnRessurectActionWhenNumberOfNeighboursIs2or3AndCellIsAlive()
     {
         $this->assertAction('Resurrect', 2);
         $this->assertAction('Resurrect', 3);
+    }
+
+    /**
+     * @test
+     */
+    public function applyReturnNullActionWhenNumberOfNeighboursIs2or3ButCellIsDead()
+    {
+        $this->assertAction('NullAction', 2, false);
+        $this->assertAction('NullAction', 3, false);
     }
 
     /**

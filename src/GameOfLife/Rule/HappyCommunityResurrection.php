@@ -12,10 +12,12 @@ class HappyCommunityResurrection extends AbstractRule
 {
     public function apply(Cell $cell)
     {
-        $liveNeighbours = $this->getNumberOfLivingNeighbours($cell);
+        if ($cell->isAlive()) {
+            $liveNeighbours = $this->getNumberOfLivingNeighbours($cell);
 
-        if (in_array($liveNeighbours, array(2, 3))) {
-            return new Action\Resurrect($cell);
+            if (in_array($liveNeighbours, array(2, 3))) {
+                return new Action\Resurrect($cell);
+            }
         }
 
         return new Action\NullAction($cell);

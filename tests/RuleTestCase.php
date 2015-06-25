@@ -26,10 +26,11 @@ class RuleTestCase extends PHPUnit_Framework_TestCase
     /**
      * @param string $actionType
      * @param int    $numberOfAliveNeighbours
+     * @param bool   $isAlive
      */
-    protected function assertAction($actionType, $numberOfLiveCells)
+    protected function assertAction($actionType, $numberOfLiveCells, $isAlive = true)
     {
-        $cell = $this->createCell($numberOfLiveCells);
+        $cell = $this->createCell($numberOfLiveCells, $isAlive);
         $actionClass = "GameOfLife\Action\\$actionType";
         $action = $this->getRule()->apply($cell);
         $this->assertInstanceOf($actionClass, $action);
@@ -37,13 +38,14 @@ class RuleTestCase extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @param int $numberOfAliveNeighbours
+     * @param int  $numberOfAliveNeighbours
+     * @param bool $isAlive
      *
      * @return Cell
      */
-    public function createCell($numberOfAliveNeighbours)
+    public function createCell($numberOfAliveNeighbours, $isAlive = true)
     {
-        $cell = new Cell();
+        $cell = new Cell($isAlive);
 
         for ($i = 1; $i <= $numberOfAliveNeighbours; $i++) {
             $cell->addNeighbour(new Cell(true));
