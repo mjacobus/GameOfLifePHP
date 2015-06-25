@@ -12,6 +12,9 @@ class Neighbourhood
      */
     private $neighbourhood = array();
 
+    /**
+     * @param array $neighbourhood
+     */
     public function __construct(array $neighbourhood)
     {
         $this->neighbourhood = $neighbourhood;
