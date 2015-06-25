@@ -26,7 +26,7 @@ class Neighbourhood
      *
      * @return mixed
      */
-    public function getResidentByAddress($line, $column)
+    private function getResidentByAddress($line, $column)
     {
         $line = $line - 1;
         $column = $column - 1;
@@ -60,7 +60,7 @@ class Neighbourhood
      *
      * @return array|null
      */
-    public function getAddress($targetedResident)
+    private function getAddress($targetedResident)
     {
         foreach ($this->neighbourhood as $xIndex => $lines) {
             foreach ($lines as $yIndex => $resident) {

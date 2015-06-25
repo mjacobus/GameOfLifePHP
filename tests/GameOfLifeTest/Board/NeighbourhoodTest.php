@@ -53,37 +53,6 @@ class NeighbourhoodTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @return array
-     */
-    public function providerForGetResidentByAddress()
-    {
-        return array(
-            array(1, 1, 1),
-            array(1, 2, 2),
-            array(5, 5, 45),
-        );
-    }
-
-    /**
-     * @test
-     * @dataProvider providerForGetResidentByAddress
-     */
-    public function canGetNeighbourByCoordinates($line, $column, $expected)
-    {
-        $this->assertEquals($expected, $this->hood->getResidentByAddress($line, $column));
-    }
-
-    /**
-     * @test
-     * @dataProvider providerForGetResidentByAddress
-     */
-    public function canGetAddress($line, $column, $resident)
-    {
-        $expected = array($line, $column);
-        $this->assertEquals($expected, $this->hood->getAddress($resident));
-    }
-
-    /**
      * @test
      */
     public function getResidents()
