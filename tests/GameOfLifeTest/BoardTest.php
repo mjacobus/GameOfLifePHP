@@ -13,7 +13,7 @@ class BoardTest extends PHPUnit_Framework_TestCase
 {
     /** @var Board */
     protected $board;
-    /** @var Cell[] */
+    /** @var [Cell[]] */
     protected $cells;
 
     public function setUp()
@@ -79,5 +79,15 @@ class BoardTest extends PHPUnit_Framework_TestCase
             $this->cells[2][2],
         );
         $this->assertEquals($cells, $this->board->getCells());
+    }
+
+    /**
+     * @test
+     */
+    public function toArray()
+    {
+        $cells = $this->getCells();
+        $this->board = new Board($cells);
+        $this->assertEquals($cells, $this->board->toArray());
     }
 }
