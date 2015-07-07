@@ -5,6 +5,7 @@ $(document).ready(function () {
 
     $('form').on('submit', function (e) {
         e.preventDefault();
+        $('#board').html('<strong>please wait...</strong>');
         var data = $(this).serialize();
 
         generation = 0;
