@@ -19,10 +19,10 @@
             </label>
             <br />
             <label>Rows:
-                <input type='' name='rows' value='20' />
+                <input type='' name='rows' value='50' />
             </label>
             <label>Columns:
-                <input type='' name='columns' value='30' />
+                <input type='' name='columns' value='50' />
             </label>
             <input type='submit' class='button' value='Play' name='' />
         </form>
