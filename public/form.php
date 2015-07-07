@@ -12,10 +12,17 @@
     <div>
         <form action='' method='post'>
             <label>Number of Generations:
-                <input type='' name='generations' value='100' />
+                <input type='' name='generations' value='200' />
             </label>
             <label>Interval in miliseconds:
-                <input type='' name='interval' value='400' />
+                <input type='' name='interval' value='10' />
+            </label>
+            <br />
+            <label>Rows:
+                <input type='' name='rows' value='20' />
+            </label>
+            <label>Columns:
+                <input type='' name='columns' value='30' />
             </label>
             <input type='submit' class='button' value='Play' name='' />
         </form>

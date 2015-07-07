@@ -6,16 +6,14 @@ use GameOfLife\GenerationGenerator;
 use GameOfLife\Board\Renderer\ToArray;
 
 $numberOfGenerations = (int) $_POST['generations'];
+$rows = (int) $_POST['rows'];
+$columns = (int) $_POST['columns'];
+$cells = getCells($rows, $columns);
 
 function newCell()
 {
     return new Cell(rand(0, 1));
 }
-
-$rows = 10;
-$columns = 30;
-
-$cells = getCells(10, 30);
 
 function getCells($rows, $columns)
 {
