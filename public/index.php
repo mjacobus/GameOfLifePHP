@@ -2,7 +2,7 @@
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-set_time_limit(60);
+set_time_limit(120);
 
 require_once '../vendor/autoload.php';
 

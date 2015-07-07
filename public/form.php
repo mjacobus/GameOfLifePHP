@@ -24,7 +24,7 @@
             <label>Columns:
                 <input type='' name='columns' value='50' />
             </label>
-            <input type='submit' class='button' value='Play' name='' />
+            <input type='submit' class='button' value='Fetch generations and Play' name='' />
         </form>
     </div>
 
@@ -60,6 +60,7 @@
     <div class='clear'></div>
 
     <div id='log'></div>
+    <input id="replay" type='button' class='button' value='Replay' name='' />
 
 </body>
 </html>

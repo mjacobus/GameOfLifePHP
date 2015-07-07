@@ -1,15 +1,79 @@
-$(document).ready(function () {
+var Renderer = {
+    currentGeneration: 0,
 
-    var generation;
-    $('#board').html('');
+    render: function (gof) {
+        this.currentGeneration = 0;
+        this.renderGenerations(gof.generations, gof.interval);
+    },
+
+    renderGenerations: function (generations, interval) {
+        generations = generations.slice(0);
+        var self = this;
+
+        setTimeout(function () {
+            if (generations.length > 0) {
+                var generation = generations.shift();
+                self.renderLog();
+                self.renderNeighbourhood(generation);
+                self.renderGenerations(generations, interval)
+            }
+        }, interval);
+    },
+
+    renderNeighbourhood: function (neighbourhood) {
+        var html = [];
+
+        for (var i = 0; i < neighbourhood.length; i++) {
+            html.push(this.getRowHtml(neighbourhood[i]));
+        }
+
+        this.container.html(html.join(''));
+    },
+
+    getRowHtml: function (row) {
+        var html = ['<div class="row">'];
+
+        for (var i = 0; i < row.length; i++) {
+            html.push(this.getCellHtml(row[i]));
+        }
+
+        html.push('</div>');
+
+        return html.join('');
+    },
+
+    getCellHtml: function (isAlive) {
+        if (isAlive) {
+            return '<div class="cell alive"></div>';
+        }
+
+        return '<div class="cell"></div>';
+    },
+
+    renderLog: function () {
+        this.currentGeneration = this.currentGeneration +1;
+        $('#log').html('<p>Rendered generation <strong>' + this.currentGeneration + '</strong></p>');
+    }
+};
+
+var Gof = {
+    generations: [],
+    interval: 500
+};
+
+
+$(document).ready(function () {
+    Renderer.container = $('#board');
+    Renderer.container.html('');
+
+    $('#replay').on('click', function () {
+        Renderer.render(Gof);
+    });
 
     $('form').on('submit', function (e) {
         e.preventDefault();
-        $('#board').html('<strong>please wait...</strong>');
+        Renderer.container.html('<strong>please wait...</strong>');
         var data = $(this).serialize();
-
-        generation = 0;
-        $('#log').html('');
 
         $.ajax({
             type: 'POST',
@@ -19,55 +83,10 @@ $(document).ready(function () {
                     response = $.parseJSON(response);
                 }
 
-                var interval = $('input[name="interval"]').val();
-                interval = parseInt(interval);
-                renderGenerations(response.generations, interval);
+                Gof.generations = response.generations;
+                Gof.interval = parseInt($('input[name="interval"]').val());
+                Renderer.render(Gof);
             }
         });
     });
-
-    function renderGenerations(generations, interval) {
-        setTimeout(function () {
-            if (generations.length > 0) {
-                var generation = generations.shift();
-                log();
-                renderNeighbourhood(generation);
-                renderGenerations(generations, interval)
-            }
-        }, interval);
-    }
-
-    function renderNeighbourhood(neighbourhood) {
-        var html = [];
-
-        for (var i = 0; i < neighbourhood.length; i++) {
-            html.push(getRowHtml(neighbourhood[i]));
-        }
-
-        $('#board').html(html.join(''));
-    }
-
-    function getRowHtml(row) {
-        var html = ['<div class="row">'];
-
-        for (var i = 0; i < row.length; i++) {
-            html.push(getCellHtml(row[i]));
-        }
-
-        html.push('</div>');
-
-        return html.join('');
-    }
-
-    function getCellHtml(isAlive) {
-        if (isAlive) {
-            return '<div class="cell alive"></div>';
-        }
-
-        return '<div class="cell"></div>';
-    }
-
-    function log() {
-        $('#log').html('<p>Rendered generation <strong>' + generation++ + '</strong></p>');
-    }
 });
