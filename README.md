@@ -46,9 +46,12 @@ Source: [Wikipedia](http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
 ### Usage
 
-```php
-// TBD
-```
+- Clone
+- Composer install
+- `cd public && php -S localhost:8080`
+- Go to (http://localhost:8080)
+
+
 ### Installing
 
 #### Installing Via Composer

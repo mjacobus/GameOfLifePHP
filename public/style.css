@@ -1,0 +1,25 @@
+#board {
+}
+
+.clear {
+  width: 100%;
+  float: left;
+  clear: both;
+}
+
+.row {
+  width: 100%;
+  float: left;
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border: 1px solid black;
+  float: left;
+}
+
+.cell.alive {
+  background: black;
+}
