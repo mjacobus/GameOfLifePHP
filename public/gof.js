@@ -1,11 +1,13 @@
 $(document).ready(function () {
 
+    var generation;
     $('#board').html('');
 
     $('form').on('submit', function (e) {
         e.preventDefault();
         var data = $(this).serialize();
 
+        generation = 0;
         $('#log').html('');
 
         $.ajax({
@@ -65,6 +67,6 @@ $(document).ready(function () {
     }
 
     function log() {
-        $('#log').append('<p>Rendered generation</p>');
+        $('#log').html('<p>Rendered generation <strong>' + generation++ + '</strong></p>');
     }
 });
