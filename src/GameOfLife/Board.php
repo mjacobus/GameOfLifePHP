@@ -10,7 +10,7 @@ use GameOfLife\Board\Neighbourhood;
 class Board
 {
     /**
-     * @var [Cell[]]
+     * @var array[Cell[]]
      */
     private $cells = array();
 
@@ -24,18 +24,17 @@ class Board
      */
     public function __construct(array $cells)
     {
-        $neighbourhood = new Neighbourhood($cells);
-        $this->neighbourhood = $neighbourhood;
         $this->cells = $cells;
+        $this->neighbourhood = new Neighbourhood($this->cells);
 
         foreach ($this->getCells() as $cell) {
-            $neighbours = $neighbourhood->getNeighbours($cell);
+            $neighbours = $this->neighbourhood->getNeighbours($cell);
             $cell->setNeighbours($neighbours);
         }
     }
 
     /**
-     * @param Cell[]
+     * @return Cell[]
      */
     public function getCells()
     {
