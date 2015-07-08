@@ -77,16 +77,17 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            data: data,
-            success: function (response) {
-                if (typeof(response) === 'string') {
-                    response = $.parseJSON(response);
-                }
-
-                Gof.generations = response.generations;
-                Gof.interval = parseInt($('input[name="interval"]').val());
-                Renderer.render(Gof);
+            data: data
+        }).fail(function (response) {
+            Renderer.container.html(response.responseText);
+        }).done(function (response) {
+            if (typeof(response) === 'string') {
+                response = $.parseJSON(response);
             }
+
+            Gof.generations = response.generations;
+            Gof.interval = parseInt($('input[name="interval"]').val());
+            Renderer.render(Gof);
         });
     });
 });
