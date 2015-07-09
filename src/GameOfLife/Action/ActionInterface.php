@@ -2,8 +2,6 @@
 
 namespace GameOfLife\Action;
 
-use GameOfLife\Cell;
-
 /**
  * GameOfLife\Action\ActionInterface
  */

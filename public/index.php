@@ -5,6 +5,8 @@ error_reporting(E_ALL);
 set_time_limit(120);
 ini_set('memory_limit', '1000M');
 
+chdir(__DIR__);
+
 require_once '../vendor/autoload.php';
 
 if (count($_POST)) {
