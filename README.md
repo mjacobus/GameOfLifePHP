@@ -46,11 +46,17 @@ Source: [Wikipedia](http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
 ### Usage
 
+### Web
+
 - Clone
 - Composer install
 - `cd public && php -S localhost:8080`
 - Go to [http://localhost:8080](http://localhost:8080)
 
+
+### CLI
+
+- run `php cli/run.php`
 
 ### Installing
 
