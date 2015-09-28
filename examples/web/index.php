@@ -7,15 +7,15 @@ ini_set('memory_limit', '1000M');
 
 chdir(__DIR__);
 
-require_once '../vendor/autoload.php';
+require_once dirname(__FILE__) . '/../../vendor/autoload.php';
 
 if (count($_POST)) {
     try {
-        require_once "json_response.php";
+        require_once 'json_response.php';
     } catch (\Exception $e) {
         http_response_code(500);
         throw $e;
     }
 }
 
-require_once "form.php";
+require_once 'form.php';
