@@ -8,8 +8,8 @@ use GameOfLife\GenerationGenerator;
 use GameOfLife\Board\Renderer\Cli;
 
 $numberOfGenerations = (int) 100;
-$rows = (int) 50;
-$columns = (int) 50;
+$columns = (int) 100;
+$rows = (int) 80;
 $cells = getCells($rows, $columns);
 
 function newCell()
